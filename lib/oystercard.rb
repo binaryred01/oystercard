@@ -4,6 +4,8 @@ class Oystercard
 
   MAXIMUM_BALANCE = 90
 
+  MINIMUM_CHARGE = 1
+
   def initialize
     @balance = 0
     @in_use = false
@@ -23,6 +25,7 @@ class Oystercard
   end
 
   def touch_in
+    fail "Error: insufficient balance" if balance < MINIMUM_CHARGE
     @in_use = true
   end
 
